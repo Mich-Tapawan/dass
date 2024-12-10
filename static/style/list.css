@@ -8,19 +8,21 @@ body {
 
 header {
   display: flex;
-  background-color: #e57373;
+  background-color: #f34646;
   color: white;
-  padding: 10px 100px;
+  padding: 10px 150px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+
   font-family: Poppins, serif;
 }
 
 h4 {
+  font-size: 20px;
   font-family: Poppins, serif;
 }
+
 .header-icons {
   display: flex;
   gap: 50px; /* Space between icons */
@@ -30,41 +32,42 @@ h4 {
   width: 30px;
   height: 30px;
   border-radius: 50%; /* Optional for circular icons */
+  padding: 5px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
 .header-icons img:hover {
+  background-color: #e57373;
   transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 main {
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Space between left and right sections */
-  align-items: flex-start; /* Align items to the top */
   gap: 20px; /* Space between the two sections */
-  padding: 20px;
+  padding: 10px 150px;
 }
+
 .symptoms-identifier {
   width: 300px; /* Adjust width as needed */
   text-align: left;
 }
 
 .symptoms-identifier h2 {
-  color: #e57373;
-  margin-left: 100px; /* Aligns with the textarea */
+  color: #f34646;
+  font-size: 2rem;
   white-space: nowrap; /* Prevents wrapping */
 }
 
 .symptoms-identifier textarea {
   width: 600px;
-  height: 500px; /* Adjust height if necessary */
+  height: 450px; /* Adjust height if necessary */
   padding: 15px;
   border: 1px solid #e57373;
   border-radius: 8px;
   outline: none; /* Removes default outline */
   font-size: 16px;
-  margin-left: 100px; /* Aligns with the heading */
   margin-bottom: 20px;
 }
 
@@ -78,21 +81,14 @@ main {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 150px; /* Aligns with the textarea and heading */
 }
 
 .symptoms-identifier button:hover {
-  background-color: #d32f2f; /* Slightly darker shade on hover */
-}
-
-.symptoms-found {
-  width: 300px; /* Adjust width for the right-side box */
-  margin-right: 500px;
-  margin-top: 70px;
+  background-color: #f34646; /* Slightly darker shade on hover */
 }
 
 .title-box {
-  background-color: #e57373;
+  background-color: #f34646;
   color: white;
   padding: 10px;
   width: 500px;
@@ -116,9 +112,7 @@ main {
 .findings-box {
   background-color: #f0c7c7; /* Red color for the box */
   padding: 15px;
-  margin-top: 20px;
-  border-radius: 8px; /* Rounded corners */
-  width: 500px; /* Same width as the content box */
+  border-radius: 8px; /* Rounded corners */ /* Same width as the content box */
   height: 150px;
 }
 
@@ -127,9 +121,8 @@ main {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
-  font-family: Poppins;
+  font-family: "Poppins";
   margin-bottom: 20px; /* Space between title and items */
-  margin-right: 100px;
   margin-top: 0px; /* Move the title slightly higher */
 }
 
