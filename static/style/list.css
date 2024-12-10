@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  display: flex;
+  background-color: #e57373;
+  color: white;
+  padding: 10px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-family: Poppins, serif;
+}
+
+h4 {
+  font-family: Poppins, serif;
+}
+.header-icons {
+  display: flex;
+  gap: 50px; /* Space between icons */
+}
+
+.header-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Optional for circular icons */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-icons img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+main {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between the two sections */
+  padding: 20px;
+}
+.symptoms-identifier {
+  width: 300px; /* Adjust width as needed */
+  text-align: left;
+}
+
+.symptoms-identifier h2 {
+  color: #e57373;
+  margin-left: 100px; /* Aligns with the textarea */
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+.symptoms-identifier textarea {
+  width: 600px;
+  height: 500px; /* Adjust height if necessary */
+  padding: 15px;
+  border: 1px solid #e57373;
+  border-radius: 8px;
+  outline: none; /* Removes default outline */
+  font-size: 16px;
+  margin-left: 100px; /* Aligns with the heading */
+  margin-bottom: 20px;
+}
+
+.symptoms-identifier button {
+  background-color: #e57373;
+  color: white;
+  border: none;
+  width: 500px; /* Matches the textarea width */
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 150px; /* Aligns with the textarea and heading */
+}
+
+.symptoms-identifier button:hover {
+  background-color: #d32f2f; /* Slightly darker shade on hover */
+}
+
+.symptoms-found {
+  width: 300px; /* Adjust width for the right-side box */
+  margin-right: 500px;
+  margin-top: 70px;
+}
+
+.title-box {
+  background-color: #e57373;
+  color: white;
+  padding: 10px;
+  width: 500px;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  text-align: center;
+  font-weight: bold;
+  font-family: Poppins;
+}
+
+.content-box {
+  background-color: white;
+  border: 2px solid #e57373;
+  width: 486px;
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+  padding: 15px;
+  min-height: 150px; /* Adjust as needed */
+  font-size: 14px;
+  color: #333;
+}
+
+.findings-box {
+  background-color: #f0c7c7; /* Red color for the box */
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px; /* Rounded corners */
+  width: 500px; /* Same width as the content box */
+  height: 150px;
+}
+
+.findings-box h4 {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: Poppins;
+  margin-bottom: 20px; /* Space between title and items */
+  margin-right: 100px;
+  margin-top: 0px; /* Move the title slightly higher */
+}
+
+.findings-content {
+  display: flex;
+  justify-content: space-between; /* Space the items evenly */
+  text-align: center;
+  width: 100%;
+}
+
+.findings-item {
+  flex: 1; /* Each item takes equal space */
+}
+
+.findings-item p {
+  font-size: 16px;
+  color: black;
+  margin-bottom: 5px;
+  font-family: Poppins;
+}
+
+/* Style for the number (0) */
+.findings-item p:last-child {
+  color: #e57373; /* Color the number 0 */
+  font-size: 20px; /* Make the number slightly bigger */
+  font-weight: bold; /* Make the number bold */
+  font-family: Poppins;
+}

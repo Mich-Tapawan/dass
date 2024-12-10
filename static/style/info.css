@@ -1,0 +1,107 @@
+/* info.css */
+
+body {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  display: flex;
+  background-color: #e57373;
+  color: white;
+  padding: 10px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-family: Poppins, serif;
+}
+
+h4 {
+  font-family: Poppins, serif;
+}
+.header-icons {
+  display: flex;
+  gap: 50px; /* Space between icons */
+}
+
+.header-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Optional for circular icons */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-icons img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.chart-section {
+  flex: 1;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.chart-section img {
+  width: 100%;
+  max-width: 700px;
+}
+
+.chart-navigation {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  background-color: #e57373;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #d84343;
+}
+
+#stat-type {
+  font-weight: bold;
+  font-size: 18px;
+  color: #e57373;
+}
+
+.statistics-image {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.statistics-image img {
+  width: 100%;
+  max-width: 800px;
+}
+
+.classification-report img {
+  margin-top: 0px;
+}

@@ -6,7 +6,16 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return
+    return render_template('index.html')
+
+@app.route('/detect')
+def detect():
+    return render_template('list.html')
+
+@app.route('/model')
+def model():
+    return render_template('info.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
