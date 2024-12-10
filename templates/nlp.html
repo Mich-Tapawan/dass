@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DASS21 - Amplified</title>
-    <link rel="stylesheet" href="/static/style/list.css" />
+    <link rel="stylesheet" href="/static/style/nlp.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,8 +31,12 @@
     <main>
       <div class="symptoms-identifier">
         <h2>Symptoms Identifier</h2>
-        <textarea placeholder="What are you feeling?" rows="6"></textarea>
-        <button>Analyze</button>
+        <textarea
+          placeholder="What are you feeling?"
+          rows="6"
+          id="user-input"
+        ></textarea>
+        <button id="analyze-btn">Analyze</button>
       </div>
       <div class="results">
         <div class="symptoms-found">
@@ -40,7 +44,7 @@
             <h3>DASS 21 - Symptoms Found</h3>
           </div>
           <div class="content-box">
-            <p></p>
+            <p id="symptoms-list"></p>
           </div>
         </div>
 
@@ -49,19 +53,21 @@
           <div class="findings-content">
             <div class="findings-item">
               <p>Depression</p>
-              <p>0</p>
+              <p id="depression-count">0</p>
             </div>
             <div class="findings-item">
               <p>Anxiety</p>
-              <p>0</p>
+              <p id="anxiety-count">0</p>
             </div>
             <div class="findings-item">
               <p>Stress</p>
-              <p>0</p>
+              <p id="stress-count">0</p>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <script src="/static/js/nlp.js"></script>
   </body>
 </html>

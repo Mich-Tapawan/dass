@@ -9,7 +9,7 @@ def analyze_dass21_symptoms(input_text):
 
     # Define the DASS-21 categories and associated keywords
     DASS21_KEYWORDS = {
-        "Depression": ["downhearted", "blue", "positive feelings", "meaningless", "disheartened",
+        "Depression": ["downhearted", "blue", "meaningless", "disheartened",
                        "not worth", "worth nothing", "worthless", "unable", "nothing", "couldn't",
                        "hopeless"],
         "Anxiety": ["trembling", "scared", "scary", "panic", "panicked", "panicking", "absence", "worried",
@@ -86,8 +86,8 @@ I am not nervous about small things.
 """
 
 # Analyze Symptoms
-results = analyze_dass21_symptoms(user_input)
+#results = analyze_dass21_symptoms(user_input)
 
 # Output Results
-print("Matched Symptoms:", results["matched_symptoms"])
-print("Symptom Counts:", results["symptom_counts"])
+# print("Matched Symptoms:", results["matched_symptoms"])
+# print("Symptom Counts:", results["symptom_counts"])

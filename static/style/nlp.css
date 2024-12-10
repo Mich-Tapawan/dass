@@ -87,6 +87,10 @@ main {
   background-color: #f34646; /* Slightly darker shade on hover */
 }
 
+.results {
+  margin-top: 5.5rem;
+}
+
 .title-box {
   background-color: #f34646;
   color: white;
@@ -110,6 +114,7 @@ main {
 }
 
 .findings-box {
+  margin-top: 4rem;
   background-color: #f0c7c7; /* Red color for the box */
   padding: 15px;
   border-radius: 8px; /* Rounded corners */ /* Same width as the content box */
@@ -146,7 +151,7 @@ main {
 
 /* Style for the number (0) */
 .findings-item p:last-child {
-  color: #e57373; /* Color the number 0 */
+  color: #f34646; /* Color the number 0 */
   font-size: 20px; /* Make the number slightly bigger */
   font-weight: bold; /* Make the number bold */
   font-family: Poppins;
