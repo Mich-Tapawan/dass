@@ -47,11 +47,14 @@ def analyze_dass21_symptoms(input_text):
     # Negation detection
     def has_negation(token):
         negations = {"not", "no", "never", "n't"}
-        return any(tok.text.lower() in negations for tok in token.lefts)
+        # Check if negation is directly modifying the token
+        return any(tok.text.lower() in negations for tok in token.lefts) or (
+            token.i > 0 and doc[token.i - 1].text.lower() in negations
+        )
 
     # Analyze input text
     doc = nlp(input_text.lower())
-    matched_symptoms = {"Depression": [], "Anxiety": [], "Stress": []}
+    matched_symptoms = {"Depression": set(), "Anxiety": set(), "Stress": set()}
 
     for category, keywords in PROCESSED_DASS21_KEYWORDS.items():
         # Check for lemma or stem matches
@@ -59,24 +62,30 @@ def analyze_dass21_symptoms(input_text):
             lemma = token.lemma_
             stem = ps.stem(lemma)
             if lemma in keywords or stem in keywords:
-                if not has_negation(token):
-                    matched_symptoms[category].append(token.text)
+                if not has_negation(token):  # Skip if negated
+                    if token.text.lower() != "not":  # Explicitly skip the word 'not'
+                        matched_symptoms[category].add(token.text)
 
     # Phrase matching
     for category, matcher in PHRASE_MATCHERS.items():
         matches = matcher(doc)
         for _, start, end in matches:
             phrase = doc[start:end].text
-            matched_symptoms[category].append(phrase)
+            if not has_negation(doc[start]):  # Skip if negated
+                matched_symptoms[category].add(phrase)
+
+    # Convert sets to list to avoid duplication of keywords
+    matched_symptoms = {category: list(symptoms) for category, symptoms in matched_symptoms.items()}
 
     # Count symptoms
-    symptom_counts = {category: len(set(symptoms)) for category, symptoms in matched_symptoms.items()}
+    symptom_counts = {category: len(symptoms) for category, symptoms in matched_symptoms.items()}
 
-    # Return the results
     return {
         "matched_symptoms": matched_symptoms,
         "symptom_counts": symptom_counts
     }
+
+
 
 # Example Input
 user_input = """
@@ -88,6 +97,6 @@ I am not nervous about small things.
 # Analyze Symptoms
 #results = analyze_dass21_symptoms(user_input)
 
-# Output Results
-# print("Matched Symptoms:", results["matched_symptoms"])
-# print("Symptom Counts:", results["symptom_counts"])
+ #Output Results
+#print("Matched Symptoms:", results["matched_symptoms"])
+#print("Symptom Counts:", results["symptom_counts"])

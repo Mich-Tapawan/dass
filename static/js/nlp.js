@@ -26,8 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const data = await response.json();
     console.log(data);
-    const keywords = String(data.matched_symptoms.Depression);
-    symptomsList.innerHTML = keywords;
+
+    const formattedSymptoms = [];
+    for (const [category, symptoms] of Object.entries(data.matched_symptoms)) {
+      symptoms.forEach((symptom) => {
+        formattedSymptoms.push(`${symptom} (${category})`);
+      });
+    }
+    symptomsList.innerHTML = formattedSymptoms.join(", ");
 
     depressionCount.innerHTML = data.symptom_counts.Depression;
     anxietyCount.innerHTML = data.symptom_counts.Anxiety;
