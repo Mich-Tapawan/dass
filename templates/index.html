@@ -27,6 +27,61 @@
         </a>
       </div>
     </header>
+
+    <main>
+      <h1>DASS - 21 Test</h1>
+      <div class="grid-container">
+        <div class="grid-test">
+          <div class="form-container">
+            <ul id="question-list"></ul>
+          </div>
+          <div class="form-buttons">
+            <button id="return">RETURN</button>
+            <button id="next">NEXT</button>
+          </div>
+        </div>
+
+        <div class="grid-findings">
+          <div class="card-header">
+            <h2>FINDINGS</h2>
+          </div>
+          <div class="card-content">
+            <div class="dass-results">
+              <div>
+                <h4>Depression</h4>
+                <span id="D-score">0</span>
+                <h5>Severity</h5>
+                <p id="D-severity">None</p>
+              </div>
+
+              <div>
+                <h4>Anxiety</h4>
+                <span id="A-score">0</span>
+                <h5>Severity</h5>
+                <p id="A-severity">None</p>
+              </div>
+
+              <div>
+                <h4>Stress</h4>
+                <span id="S-score">0</span>
+                <h5>Severity</h5>
+                <p id="S-severity">None</p>
+              </div>
+            </div>
+
+            <div class="likelihood-container">
+              <h5>LIKELIHOOD OF INCREASE</h5>
+              <p id="likelihood">None</p>
+            </div>
+            <div class="magnitude-container">
+              <h5>MAGNITUDE OF INCREASE</h5>
+              <p id="magnitude">0%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <script src="/static/js/index.js"></script>
   </body>
 </html>

@@ -9,19 +9,20 @@ body {
 
 header {
   display: flex;
-  background-color: #e57373;
+  background-color: #f34646;
   color: white;
-  padding: 10px 100px;
+  padding: 10px 150px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
   font-family: Poppins, serif;
 }
 
 h4 {
+  font-size: 20px;
   font-family: Poppins, serif;
 }
+
 .header-icons {
   display: flex;
   gap: 50px; /* Space between icons */
@@ -31,10 +32,139 @@ h4 {
   width: 30px;
   height: 30px;
   border-radius: 50%; /* Optional for circular icons */
+  padding: 5px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
 .header-icons img:hover {
+  background-color: #e57373;
   transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+main {
+  padding: 10px 150px;
+}
+
+h1 {
+  color: #f34646;
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  justify-content: space-between;
+  grid-template-columns: 750px 1fr;
+}
+
+.grid-test {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 80%;
+  height: 60vh;
+  border: 2px solid #f34646;
+  margin-bottom: 1rem;
+  padding-inline: 2rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li p {
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+li select {
+  padding-left: 1rem;
+  height: 1.4rem;
+}
+
+.form-buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  color: #fff;
+  background-color: #f34646;
+  padding-block: 1rem;
+  width: 15rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+#return {
+  background: #e57373;
+}
+
+.grid-findings {
+  background-color: #fff;
+  width: 100%;
+}
+
+.card-header {
+  width: 100%;
+  padding-block: 0.5rem;
+  text-align: center;
+  background-color: #f34646;
+  color: #fff;
+}
+
+.dass-results {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+span,
+p {
+  color: #f34646;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h4,
+h5 {
+  margin-block: 1.2rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.likelihood-container,
+.magnitude-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.likelihood-container h5,
+.magnitude-container h5 {
+  margin-bottom: 0rem;
+  font-weight: bold;
+}
+
+.likelihood-container p,
+.magnitude-container p {
+  font-size: 1.4rem;
 }
