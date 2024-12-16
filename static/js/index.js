@@ -151,7 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
       magnitude.innerHTML = `${Number(
         data.depression_increase_magnitude
       ).toFixed(2)}`;
-      future.innerHTML = Number(data.depression_increase_magnitude + 13);
+      future.innerHTML = Number(
+        data.depression_increase_magnitude + 13
+      ).toFixed(2);
     } catch (error) {
       console.error("Error computing DASS: ", error);
     }
