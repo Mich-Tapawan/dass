@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const SSeverity = document.getElementById("S-severity");
   const likelihood = document.getElementById("likelihood");
   const magnitude = document.getElementById("magnitude");
+  const future = document.getElementById("future");
 
   const questions = [
     "I felt that I had nothing to look forward to",
@@ -148,8 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
         Number(data.depression_increase_likelihood) * 100
       ).toFixed(2)}%`;
       magnitude.innerHTML = `${Number(
-        data.depression_increase_likelihood
+        data.depression_increase_magnitude
       ).toFixed(2)}`;
+      future.innerHTML = Number(data.depression_increase_magnitude + 13);
     } catch (error) {
       console.error("Error computing DASS: ", error);
     }

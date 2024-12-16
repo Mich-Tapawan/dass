@@ -65,7 +65,7 @@ class DASSModel:
         df['Depression_Increase_Magnitude'] = df['Depression'] - 13
 
         # Prepare Data for Logistic and Linear Regression
-        X = df[['Anxiety', 'Stress', 'Depression']]
+        X = df[['Anxiety', 'Stress']]
         y_classification = df['Depression_Increase']
         y_regression = df['Depression_Increase_Magnitude']
 
@@ -159,7 +159,7 @@ class DASSModel:
         stress_severity = self.severity_level(stress_score, [14, 18, 25, 33])
 
         # Predict likelihood and magnitude of depression increase
-        input_data = [[anxiety_score, stress_score, depression_score]]
+        input_data = [[anxiety_score, stress_score]]
         likelihood = self.logistic_model.predict_proba(input_data)[0][1]
         magnitude = self.linear_model.predict(input_data)[0]
 
@@ -175,5 +175,5 @@ class DASSModel:
         }
 
 #try
-#model =DASSModel()
-#model.load_model()
+model =DASSModel()
+model.load_model()

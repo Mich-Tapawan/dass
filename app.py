@@ -16,10 +16,6 @@ def home():
 def detect():
     return render_template('nlp.html')
 
-@app.route('/model')
-def model():
-    return render_template('info.html')
-
 @app.route('/processText', methods=['POST'])
 def processText():
     try:
