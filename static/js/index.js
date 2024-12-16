@@ -2,9 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const questionList = document.getElementById("question-list");
   const returnBtn = document.getElementById("return");
   const nextBtn = document.getElementById("next");
-  let dAnswers = [];
-  let aAnswers = [];
-  let sAnswers = [];
+
+  const DScore = document.getElementById("D-score");
+  const DSeverity = document.getElementById("D-severity");
+  const AScore = document.getElementById("A-score");
+  const ASeverity = document.getElementById("A-severity");
+  const SScore = document.getElementById("S-score");
+  const SSeverity = document.getElementById("S-severity");
+  const likelihood = document.getElementById("likelihood");
+  const magnitude = document.getElementById("magnitude");
 
   const questions = [
     "I felt that I had nothing to look forward to",
@@ -15,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "I found it difficult to work up the initiative to do things",
     "I was downhearted and blue",
     "I was aware of dryness of my mouth",
-    "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion) ",
+    "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)",
     "I experienced trembling (e.g. in the hands)",
     "I was worried about situations in which I might panic and make a fool of myself",
     "I felt I was close to panic",
@@ -26,9 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "I felt that I was using a lot of nervous energy",
     "I found myself getting agitated",
     "I found it difficult to relax",
-    "I was intolerant of anything that kept me from getting on with what I was doing ",
-    "I felt that I was rather touchy ",
+    "I was intolerant of anything that kept me from getting on with what I was doing",
+    "I felt that I was rather touchy",
   ];
+
   const choices = ["Never", "Sometimes", "Often", "Very Often"];
   let count = 0;
 
@@ -83,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       currentGroupIndex = 0;
       showGroup(currentGroupIndex);
-      computeDASS(dAnswers, aAnswers, sAnswers);
+      computeDASS();
     }
 
     returnBtn.style.background = currentGroupIndex == 0 ? "#e57373" : "#f34646";
@@ -102,16 +109,47 @@ document.addEventListener("DOMContentLoaded", () => {
       currentGroupIndex === groups.length - 1 ? "SUBMIT" : "NEXT";
   });
 
-  async function computeDASS(dAnswers, aAnswers, sAnswers) {
-    console.log(dAnswers, aAnswers, sAnswers);
+  function gatherAnswers(categoryClass) {
+    const answers = [];
+    document.querySelectorAll(`.${categoryClass}`).forEach((select) => {
+      answers.push(select.value);
+    });
+    return answers;
+  }
+
+  async function computeDASS() {
+    const dAnswers = gatherAnswers("D-question");
+    const aAnswers = gatherAnswers("A-question");
+    const sAnswers = gatherAnswers("S-question");
+
+    console.log("Depression Answers: ", dAnswers);
+    console.log("Anxiety Answers: ", aAnswers);
+    console.log("Stress Answers: ", sAnswers);
+
     try {
-      const res = await fetch("http://localhost:5000/computeDass", {
+      const res = await fetch("http://localhost:5000/computeDASS", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ dAnswers, aAnswers, sAnswers }),
+        body: JSON.stringify({
+          dAnswers: dAnswers,
+          aAnswers: aAnswers,
+          sAnswers: sAnswers,
+        }),
       });
       const data = await res.json();
       console.log(data);
+      DScore.innerHTML = data.depression_score;
+      DSeverity.innerHTML = data.depression_severity;
+      AScore.innerHTML = data.anxiety_score;
+      ASeverity.innerHTML = data.anxiety_severity;
+      SScore.innerHTML = data.stress_score;
+      SSeverity.innerHTML = data.stress_severity;
+      likelihood.innerHTML = `${(
+        Number(data.depression_increase_likelihood) * 100
+      ).toFixed(2)}%`;
+      magnitude.innerHTML = `${Number(
+        data.depression_increase_likelihood
+      ).toFixed(2)}`;
     } catch (error) {
       console.error("Error computing DASS: ", error);
     }
